@@ -25,7 +25,7 @@ void MainWindow::on_pushButton_clicked()
     int low = 0;
     int intArr[7];
     QString temp;
-    QString baseArr[] = {"white", "yellow", "green", "blue", "black", "purple", "red", "orange"};
+    QString baseArr[] = {"white", "yellow", "green", "blue", "teal", "purple", "red", "orange"};
     QString colorArr[7];
     QTextStream out(stdout);
 
@@ -42,6 +42,8 @@ void MainWindow::on_pushButton_clicked()
         dispButtons[i] = this->findChild<QPushButton*>(temp);
         temp = "Background: " + colorArr[i];
         dispButtons[i]->setStyleSheet(temp);
+        temp = colorArr[i];
+        dispButtons[i]->setText(temp.mid(0,1).toUpper());
     }
 
     for(int i=0; i<7; i++){
