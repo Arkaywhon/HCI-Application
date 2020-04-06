@@ -4,7 +4,8 @@
 #include <QMainWindow>
 #include <QString>
 #include <math.h>
-
+#include <iostream>
+#include <QTextStream>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

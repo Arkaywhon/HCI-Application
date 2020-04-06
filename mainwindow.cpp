@@ -16,19 +16,30 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    int high = pow(2,21);
-    int low = -1;
-    int randVal = qrand() % ((high + 1) - low) + low;
-    std::string bin;
-    //ui->numLabel->setText(QString::number(randVal));
-    while( randVal > 0 ) {
-            if( randVal % 2 == 0 ){
-                bin.insert( bin.begin( ), '0' );
-            }
-            else {
-                bin.insert( bin.begin( ), '1' );
-            }
-            randVal >>= 1;
-        }
-    ui->label->setText(QString::fromStdString(bin));
+    int high = 7;
+    int low = 0;
+    int intArr[7];
+    QString baseArr[] = {"white", "yellow", "green", "blue", "black", "purple", "red", "orange"};
+    QString colorArr[7];
+    QTextStream out(stdout);
+
+
+    for(int i=0; i<7; i++){
+        intArr[i] = qrand() % ((high +1) - low) + low;
+    }
+
+    for(int i=0; i<7; i++){
+        colorArr[i] = baseArr[intArr[i]];
+    }
+
+    for(int i=0; i<7; i++){
+        out << colorArr[i] << " ";
+    }
+    out << endl;
+
+
+
+
+
+
 }
