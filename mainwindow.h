@@ -6,6 +6,10 @@
 #include <math.h>
 #include <iostream>
 #include <QTextStream>
+#include <QPixmap>
+#include <QIcon>
+#include <QPushButton>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,5 +27,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    QPushButton *dispButtons[7];
 };
 #endif // MAINWINDOW_H
