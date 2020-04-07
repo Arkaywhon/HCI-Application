@@ -137,6 +137,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background: white;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -149,6 +152,9 @@
        <width>20</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: yellow;</string>
      </property>
      <property name="text">
       <string/>
@@ -163,6 +169,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background: green;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -175,6 +184,9 @@
        <width>20</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: blue;</string>
      </property>
      <property name="text">
       <string/>
@@ -189,6 +201,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background: teal;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -201,6 +216,9 @@
        <width>20</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: purple;</string>
      </property>
      <property name="text">
       <string/>
@@ -215,6 +233,9 @@
        <height>20</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background: red;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -227,6 +248,9 @@
        <width>20</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background: orange;</string>
      </property>
      <property name="text">
       <string/>

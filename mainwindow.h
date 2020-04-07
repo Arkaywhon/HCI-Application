@@ -31,6 +31,7 @@ private slots:
     void on_emailBtn_3_clicked();
 
     void on_passcreateBtn_clicked();
+    void on_loginBtn_clicked();
     void on_continueBtn_clicked();
     void on_coloredBtn_clicked();
 
@@ -39,8 +40,10 @@ private:
     Generator *gen;
     Account accounts[3];
     int currState;
+    QString currAttempt[7];
+    int entryCount;
 
-    void changeState(int);
     void changeState(int, QString);
+    void addEntry(QString);
 };
 #endif // MAINWINDOW_H

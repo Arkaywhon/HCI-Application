@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent)
     for(int i = 0; i < 8; i ++){
         connect(colorBtns[i], SIGNAL(clicked()), this, SLOT(on_coloredBtn_clicked()));
     }
+    entryCount = 0;
+    for(int i = 0; i < 7; i ++) currAttempt[i] = "";
 }
 
 MainWindow::~MainWindow()
@@ -33,12 +35,19 @@ void MainWindow::changeState(int state, QString text){
     }
 }
 
+void MainWindow::addEntry(QString c){
+    if(entryCount >= 7) return;
+    currAttempt[entryCount] = c;
+    entryCount ++;
+}
+
 void MainWindow::on_emailBtn_clicked(){changeState(0, "E-Mail");}
 void MainWindow::on_bankBtn_clicked(){changeState(1, "Bank");}
 void MainWindow::on_emailBtn_3_clicked(){changeState(2, "Shopping");}
 
 void MainWindow::on_passcreateBtn_clicked()
 {
+    entryCount = 0;
     ui->loginWidget->hide();
     ui->continueBtn->show();
     gen = new Generator(this);
@@ -61,4 +70,18 @@ void MainWindow::on_coloredBtn_clicked(){
     QString btnName = pushedBtn->objectName();
     QString color = btnName.mid(0, btnName.length()-3);
     qDebug() << color;
+    addEntry(color);
+}
+
+void MainWindow::on_loginBtn_clicked()
+{
+    if(entryCount != 7) return;
+    bool validated = false;
+    validated = accounts[currState].comparePasswords(currAttempt);
+    if(validated){
+        qDebug() << "You got in PogU!";
+    }else{
+        qDebug() << "Incorrect Password";
+    }
+    entryCount = 0;
 }

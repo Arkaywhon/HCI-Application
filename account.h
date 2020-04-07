@@ -9,6 +9,7 @@ public:
     Account();
     bool getPassStatus();
     void setPassword(QString*);
+    bool comparePasswords(QString*);
 
 private:
     bool passwordExists;
