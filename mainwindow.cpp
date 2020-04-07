@@ -26,6 +26,8 @@ MainWindow::~MainWindow()
 void MainWindow::changeState(int state, QString text){
     currState = state;
     ui->continueBtn->hide();
+    ui->logStatusLbl->setText("Logged Out");
+    ui->entryLbl->setText("0 / 0");
     if(currState >= 0){
         ui->stateStatusLbl->setText(text + " Account Login");
         ui->loginWidget->setEnabled(true);
@@ -39,6 +41,7 @@ void MainWindow::addEntry(QString c){
     if(entryCount >= 7) return;
     currAttempt[entryCount] = c;
     entryCount ++;
+    ui->entryLbl->setText(QString::number(entryCount) + " / 7");
 }
 
 void MainWindow::on_emailBtn_clicked(){changeState(0, "E-Mail");}
@@ -80,8 +83,10 @@ void MainWindow::on_loginBtn_clicked()
     validated = accounts[currState].comparePasswords(currAttempt);
     if(validated){
         qDebug() << "You got in PogU!";
+        ui->logStatusLbl->setText("Login Succesfull");
     }else{
         qDebug() << "Incorrect Password";
+        ui->logStatusLbl->setText("Login Failed");
     }
     entryCount = 0;
 }
