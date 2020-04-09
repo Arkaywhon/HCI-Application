@@ -7,7 +7,8 @@ Logger::Logger()
 
     succCount = 0, failCount = 0;
 
-    file = new QFile("c:/Users/ryoki/Desktop/output.txt");
+    QString curDir = QCoreApplication::applicationDirPath();
+    file = new QFile(curDir + "/outputLog.txt");
     if(!file->exists()) qDebug() << file->fileName() << " not found";
 
     if(file->open(QIODevice::ReadOnly | QIODevice::WriteOnly | QIODevice::Text)){
@@ -15,12 +16,10 @@ Logger::Logger()
         QTextStream txtStream(file);
         file->seek(file->size()); // start writing from the end of the file
 
+        qDebug() << "Check " << curDir << " for the outputLog.txt file";
         qDebug() << "Writing to file";
 
-        txtStream << "Okay here we go\n";
-        txtStream << "PogU's in the chat bois!\n";
-
-
+        txtStream << "=== New Framework Bootup Detected ===";
     }else{
         qDebug() << "Could not write to file";
     }
@@ -48,10 +47,10 @@ void Logger::pushData(int r, double t){
     QTextStream ts(file);
 
     if(r)
-        ts << "#S1 ";
+        ts << "#S, ";
     else
-        ts << "#F1 ";
-    ts << QString::number(t) << "\n";
+        ts << "#F, ";
+    ts << "Time Taken: " << QString::number(t) << "\n";
 }
 
 void Logger::logSuccess(){

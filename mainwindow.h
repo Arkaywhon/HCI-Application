@@ -52,6 +52,7 @@ private:
     QString currAttempt[7];
     int entryCount;
     Logger *log;
+    int attemptCounter;
     int counter;
     int succStates[3];
 
