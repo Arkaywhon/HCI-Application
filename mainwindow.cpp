@@ -1,20 +1,23 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+// Constructor of MainWindow
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    // basic first-time setup: initializes the login-widget and activates logger
     ui->setupUi(this);
     initLoginWidget();
     log = new Logger();
 
     attemptCounter = 0;
-
     counter = 0;
+    // populate succStates with place-holder values
     for(int i = 0; i < 3; i ++) succStates[i] = -1;
 }
 
+// Basic Destructor of MainWindow
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -22,18 +25,22 @@ MainWindow::~MainWindow()
 
 void MainWindow::initLoginWidget(){
     entryCount = 0;
+    // assigns proper state/category names. E-Mail is represented  by a 0, Bank by a 1, etc...
     stateCategories[0] = "E-Mail";
     stateCategories[1] = "Bank";
     stateCategories[2] = "Shop";
+    // connects the coloured login-buttons to their signal handler
     QPushButton *colorBtns[8] = {ui->whiteBtn, ui->yellowBtn, ui->greenBtn, ui->blueBtn, ui->tealBtn, ui->purpleBtn, ui->redBtn, ui->orangeBtn};
     for(int i = 0; i < 8; i ++) connect(colorBtns[i], SIGNAL(clicked()), this, SLOT(on_coloredBtn_clicked()));
     ui->loginWidget->setEnabled(false);
 }
 
+// function that updates/refreshes the selected state/category (whether it be E-Mail, Banking, or Shopping)
 void MainWindow::updateState(int state){
     currState = state;
     if(currState >= 0){
         ui->stateStatusLbl->setText(stateCategories[currState] + " Account Login");
+        // set the number of colours entered back to 0
         entryCount = 0;
         ui->entryLbl->setText("0 / 7");
         ui->logStatusLbl->setText("Logged Out");
@@ -41,6 +48,7 @@ void MainWindow::updateState(int state){
     }
 }
 
+// function handles adding a colour entry when user is inputting their password
 void MainWindow::addEntry(QString c){
     if(entryCount >= 7) return;
     currAttempt[entryCount] = c;
@@ -48,17 +56,22 @@ void MainWindow::addEntry(QString c){
     ui->entryLbl->setText(QString::number(entryCount) + " / 7");
 }
 
+// function returns true if all 3 categories have had their passwords succesfully created
+// returns false otherwise
 bool MainWindow::allPassCreated(){
     for(int i = 0; i < 3; i ++) if (!accounts[i].getPassStatus()) return false;
     return true;
 }
 
+// randomly selects and then displays a category
 void MainWindow::nextRandState(){
 
     bool checker = true;
     bool unique = true;
     int rand = qrand() % ((2 + 1) - 0) + 0;
 
+    // this while-loop is responsible for ensuring that the next randomly selected category
+    // doesn't end up being one that has already been randomly selected previously.
     while(checker == true){
         for(int i = 0; i < counter; i ++){
             if(succStates[i] == rand){
@@ -73,45 +86,63 @@ void MainWindow::nextRandState(){
         rand = qrand() % ((2 + 1) - 0) + 0;
     }
 
+    // newly chosen state/category is added to the array to keep track of it
     succStates[counter] = rand;
     counter ++;
     entryCount = 0;
+    // show the randomly selected state/category
     updateState(rand);
 }
 
+// these are the event handlers for the 3 category buttons when clicked
 void MainWindow::on_emailBtn_clicked(){updateState(0);}
 void MainWindow::on_bankBtn_clicked(){updateState(1);}
-void MainWindow::on_emailBtn_3_clicked(){updateState(2);}
+void MainWindow::on_shopBtn_clicked(){updateState(2);}
 
+// function allows users to create a new octaPass password
 void MainWindow::on_passcreateBtn_clicked()
 {
+    // disable the main-window since a new pop-up will emerge (reduces chance of user accidentally clicking on main-window buttons)
     this->setEnabled(false);
+    // create a new password generator, and have the framework listen for when it closes
     gen = new Generator();
     connect(gen, SIGNAL(destroyed(QObject*)), this, SLOT(on_generator_completed()));
     gen->show();
 
     entryCount = 0;
+    // set the current state/category's password to the newly generated password
     accounts[currState].setPassword(gen->getPassword());
     updateState(currState);
 }
 
+// function activates when generator pop-up window is closed
+void MainWindow::on_generator_completed(){
+    // re-enable the main-window
+    this->setEnabled(true);
+}
+
+// function handler for the 8 coloured buttons surrounding octagon
 void MainWindow::on_coloredBtn_clicked(){
-    //if(entryCount == 0) log->beginTimeLog();
+    // gets the pushed button colour and adds it as an entry to the password
     QPushButton *pushedBtn = qobject_cast<QPushButton*>(sender());
     QString btnName = pushedBtn->objectName();
     QString color = btnName.mid(0, btnName.length()-3);
     addEntry(color);
 }
 
+// function handler for the "Attempt Login" button
 void MainWindow::on_loginBtn_clicked()
 {
-
+    // make sure user has entered all 7 colours, otherwise don't do anything
     if(entryCount != 7) return;
+    // boolean that checks if the entered password matches the password generated by framework
     bool validated = accounts[currState].comparePasswords(currAttempt);
 
+    // various conditionals that dictate how the program should act on a succesfull or failed entry
     if(validated){
-
+        // code here is executed if entry was succesfull
         ui->logStatusLbl->setText("Login Succesfull");
+        // have the logger log a success and the time taken
         log->logSuccess();
         attemptCounter = 0;
         ui->octaPass->setEnabled(false);
@@ -124,11 +155,13 @@ void MainWindow::on_loginBtn_clicked()
             updateState(currState);
         }
     }else if(attemptCounter < 2){
-
+        // code here is executed if entry was unsuccesfull, but the user has not used all 3 attempts yet
         attemptCounter ++;
         updateState(currState);
         ui->logStatusLbl->setText("Login Failed");
     }else{
+        // code here is executed if entry was unsuccesfull, and user has used all 3 attemps
+        // have the logger log a failure and the time taken
         log->logFailure();
         if(counter < 3){
             nextRandState();
@@ -137,33 +170,32 @@ void MainWindow::on_loginBtn_clicked()
             updateState(currState);
         }
     }
-//    entryCount = 0;
-//    ui->entryLbl->setText(QString::number(entryCount) + " / 7");
 }
 
-void MainWindow::on_generator_completed(){
-    this->setEnabled(true);
-    //qDebug() << "Poggy Woggy";
-}
-
-void MainWindow::on_logBtn_clicked(){
-    qDebug() << "Log button pushed";
-}
-
+// function handler for the "Begin Entry" button
 void MainWindow::on_beginBtn_clicked()
 {
+    // enable the octaPass to be usable
     ui->octaPass->setEnabled(true);
+    // disable the "Begin Entry" button so it is clearer to user that they're supposed to be inputting a password currently
     ui->beginBtn->setEnabled(false);
+    // start logging the time taken for the entry
     log->beginTimeLog();
 }
 
+// function handler for the "Start Attempt" button
 void MainWindow::on_attemptBtn_clicked()
 {
+    // checks if all 3 states/categories have had their passwords generated successfully
     if(allPassCreated()){
+        // choose a random category to display
         int rand = qrand() % ((2 + 1) - 0) + 0;
+        // enable "Begin Entry" button
         ui->beginBtn->setEnabled(true);
+        // record which state/category has been selected
         succStates[counter] = rand;
         counter += 1;
+        // display the selected state/cateogry
         updateState(rand);
     }
 }

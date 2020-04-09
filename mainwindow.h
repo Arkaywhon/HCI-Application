@@ -29,18 +29,14 @@ public:
 private slots:
     void on_emailBtn_clicked();
     void on_bankBtn_clicked();
-    void on_emailBtn_3_clicked();
+    void on_shopBtn_clicked();
 
     void on_generator_completed();
-
     void on_passcreateBtn_clicked();
     void on_loginBtn_clicked();
     void on_coloredBtn_clicked();
 
-    void on_logBtn_clicked();
-
     void on_beginBtn_clicked();
-
     void on_attemptBtn_clicked();
 
 private:

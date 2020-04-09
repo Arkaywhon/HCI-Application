@@ -40,19 +40,6 @@
      <string>Banking</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="emailBtn_3">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>200</y>
-      <width>111</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Shopping</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="loginWidget" native="true">
     <property name="geometry">
      <rect>
@@ -346,24 +333,6 @@
     <zorder>logStatusLbl</zorder>
     <zorder>beginBtn</zorder>
    </widget>
-   <widget class="QPushButton" name="logBtn">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>450</y>
-      <width>111</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Log Info</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="attemptBtn">
     <property name="geometry">
      <rect>
@@ -375,6 +344,19 @@
     </property>
     <property name="text">
      <string>Start Attempt</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="shopBtn">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>200</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Shopping</string>
     </property>
    </widget>
   </widget>
