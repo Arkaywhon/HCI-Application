@@ -19,7 +19,7 @@ Logger::Logger()
         qDebug() << "Check " << curDir << " for the outputLog.txt file";
         qDebug() << "Writing to file";
 
-        txtStream << "=== New Framework Bootup Detected ===";
+        txtStream << "=== New Framework Bootup Detected ===\n";
     }else{
         qDebug() << "Could not write to file";
     }
