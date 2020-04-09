@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/new/octagon">
         <file>octagon.png</file>
+        <file>omegalul.txt</file>
     </qresource>
 </RCC>

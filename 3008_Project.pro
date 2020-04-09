@@ -19,12 +19,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     account.cpp \
     generator.cpp \
+    logger.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     account.h \
     generator.h \
+    logger.h \
     mainwindow.h
 
 FORMS += \

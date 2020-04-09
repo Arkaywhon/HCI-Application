@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>718</width>
-    <height>616</height>
+    <width>584</width>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>110</y>
+      <y>30</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>240</y>
+      <y>115</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -44,7 +44,7 @@
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>360</y>
+      <y>200</y>
       <width>111</width>
       <height>41</height>
      </rect>
@@ -56,60 +56,20 @@
    <widget class="QWidget" name="loginWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>215</x>
-      <y>20</y>
-      <width>471</width>
-      <height>541</height>
+      <x>220</x>
+      <y>30</y>
+      <width>300</width>
+      <height>450</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">background: #cccccc;</string>
     </property>
-    <widget class="QWidget" name="octagon" native="true">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>330</y>
-       <width>121</width>
-       <height>111</height>
-      </rect>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">border-image: url(&quot;:/new/octagon/octagon.png&quot;);</string>
-     </property>
-     <widget class="QLabel" name="entryLbl">
-      <property name="geometry">
-       <rect>
-        <x>24</x>
-        <y>31</y>
-        <width>71</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">border-image: none;</string>
-      </property>
-      <property name="text">
-       <string>0 / 7</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </widget>
     <widget class="QPushButton" name="passcreateBtn">
      <property name="geometry">
       <rect>
-       <x>160</x>
-       <y>210</y>
+       <x>90</x>
+       <y>100</y>
        <width>121</width>
        <height>23</height>
       </rect>
@@ -118,24 +78,11 @@
       <string>Create Password</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="loginBtn">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>250</y>
-       <width>121</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Attempt Login</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="stateStatusLbl">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>130</y>
+       <x>20</x>
+       <y>40</y>
        <width>261</width>
        <height>31</height>
       </rect>
@@ -152,139 +99,11 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="whiteBtn">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>300</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: white;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="yellowBtn">
-     <property name="geometry">
-      <rect>
-       <x>272</x>
-       <y>317</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: yellow;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="greenBtn">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>373</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: green;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="blueBtn">
-     <property name="geometry">
-      <rect>
-       <x>273</x>
-       <y>429</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: blue;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="tealBtn">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>447</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: teal;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="purpleBtn">
-     <property name="geometry">
-      <rect>
-       <x>150</x>
-       <y>430</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: purple;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="redBtn">
-     <property name="geometry">
-      <rect>
-       <x>133</x>
-       <y>375</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: red;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="orangeBtn">
-     <property name="geometry">
-      <rect>
-       <x>148</x>
-       <y>317</y>
-       <width>20</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background: orange;</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
     <widget class="QLabel" name="logStatusLbl">
      <property name="geometry">
       <rect>
-       <x>146</x>
-       <y>490</y>
+       <x>80</x>
+       <y>400</y>
        <width>151</width>
        <height>41</height>
       </rect>
@@ -301,18 +120,261 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QWidget" name="octaPass" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>25</x>
+       <y>170</y>
+       <width>250</width>
+       <height>221</height>
+      </rect>
+     </property>
+     <widget class="QPushButton" name="tealBtn">
+      <property name="geometry">
+       <rect>
+        <x>115</x>
+        <y>159</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: teal;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="purpleBtn">
+      <property name="geometry">
+       <rect>
+        <x>55</x>
+        <y>142</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: purple;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="blueBtn">
+      <property name="geometry">
+       <rect>
+        <x>178</x>
+        <y>141</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: blue;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="greenBtn">
+      <property name="geometry">
+       <rect>
+        <x>195</x>
+        <y>85</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: green;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="orangeBtn">
+      <property name="geometry">
+       <rect>
+        <x>53</x>
+        <y>29</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: orange;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="redBtn">
+      <property name="geometry">
+       <rect>
+        <x>38</x>
+        <y>87</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: red;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="whiteBtn">
+      <property name="geometry">
+       <rect>
+        <x>115</x>
+        <y>12</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: white;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="yellowBtn">
+      <property name="geometry">
+       <rect>
+        <x>177</x>
+        <y>29</y>
+        <width>20</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: yellow;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QWidget" name="octagon" native="true">
+      <property name="geometry">
+       <rect>
+        <x>65</x>
+        <y>42</y>
+        <width>121</width>
+        <height>111</height>
+       </rect>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(&quot;:/new/octagon/octagon.png&quot;);</string>
+      </property>
+      <widget class="QLabel" name="entryLbl">
+       <property name="geometry">
+        <rect>
+         <x>24</x>
+         <y>31</y>
+         <width>71</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: none;</string>
+       </property>
+       <property name="text">
+        <string>0 / 7</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="loginBtn">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>190</y>
+        <width>121</width>
+        <height>23</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Attempt Login</string>
+      </property>
+     </widget>
+     <zorder>octagon</zorder>
+     <zorder>tealBtn</zorder>
+     <zorder>purpleBtn</zorder>
+     <zorder>blueBtn</zorder>
+     <zorder>greenBtn</zorder>
+     <zorder>orangeBtn</zorder>
+     <zorder>redBtn</zorder>
+     <zorder>whiteBtn</zorder>
+     <zorder>yellowBtn</zorder>
+     <zorder>loginBtn</zorder>
+    </widget>
+    <widget class="QPushButton" name="beginBtn">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>130</y>
+       <width>121</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Begin Entry</string>
+     </property>
+    </widget>
+    <zorder>passcreateBtn</zorder>
+    <zorder>stateStatusLbl</zorder>
+    <zorder>octaPass</zorder>
+    <zorder>logStatusLbl</zorder>
+    <zorder>beginBtn</zorder>
    </widget>
-   <widget class="QPushButton" name="continueBtn">
+   <widget class="QPushButton" name="logBtn">
     <property name="geometry">
      <rect>
-      <x>400</x>
-      <y>190</y>
-      <width>75</width>
-      <height>23</height>
+      <x>40</x>
+      <y>450</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Log Info</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="attemptBtn">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>400</y>
+      <width>111</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Continue</string>
+     <string>Start Attempt</string>
     </property>
    </widget>
   </widget>
@@ -321,8 +383,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>718</width>
-     <height>21</height>
+     <width>584</width>
+     <height>20</height>
     </rect>
    </property>
   </widget>

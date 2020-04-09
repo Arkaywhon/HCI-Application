@@ -13,19 +13,19 @@ public:
     QString* getPassword();
 
 private slots:
-    void on_genButton_clicked();
+    void on_conButton_clicked();
 
 private:
     QPushButton *dispButtons[7];
-    QPushButton *genButton;
-    //QPushButton *conButton;
+    QPushButton *conButton;
 
     int intArr[7];
     QString baseArr[8];
     QString colorArr[7];
 
-signals:
-
+    void initBaseArr();
+    void initDispBtns(int, int);
+    void generatePassword();
 };
 
 #endif // GENERATOR_H
